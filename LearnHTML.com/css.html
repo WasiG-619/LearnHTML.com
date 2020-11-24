@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>LearnHTML.com</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="css/css.css">
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+<script  src="js/colorGenerate.js"></script>
+</head>
+
+<body>
+<div class="navbar" id="navbar"> <a class="logo" href="index.html"><img alt="image" src="img/logo.png"></a> <a href="index.html">Home</a> <a  href="html.html">HTML</a> <a class="active" href="css.html">CSS</a> <a href="js.html">JavaScript</a> <a href="contact.html">Contact Us</a> </div>
+<div class="header">
+  <h1>CSS</h1>
+  <h2>Cascading Style Sheets</h2>
+</div>
+<div class="row" id="intro-row">
+  <div class="size-1">
+    <h1>Topics</h1>
+    <ul class="ul-no-style">
+      <li><a class="learnBtn" href="#intro">Introduction</a></li>
+      <li><a class="learnBtn" href="#how">How to Add</a></li>
+      <li><a class="learnBtn" href="#example1">Example</a></li>
+      <li><a class="learnBtn" href="#color">Color Generator</a></li>
+    </ul>
+  </div>
+  <div class="size-4">
+    <h1 id="intro">CSS Introduction</h1>
+    <h3>CSS describes how HTML elements are to be displayed.</h3>
+    <h2><u>What is CSS?</u></h2>
+    <ul class="ul-line-height">
+      <li>CSS stands for Cascading Style Sheets</li>
+      <li>CSS describes how HTML elements are to be displayed on screen, paper, or in other media</li>
+      <li>CSS saves a lot of work. It can control the layout of multiple web pages all at once</li>
+      <li>External stylesheets are stored in CSS files</li>
+    </ul>
+  </div>
+</div>
+<div class="row" id="how">
+  <h1 class="banner">Three Ways to Add CSS </h1>
+  <div class="size-3">
+    <h2>External Link</h2>
+    <p>With an external style sheet, you can change the look of an entire website by changing just one file!</p>
+    <img alt="image" class="example-img" src="img/content/css-1.png"> </div>
+  <div class="size-3">
+    <h2>Internal CSS</h2>
+    <p>An internal style sheet may be used if one single HTML page has a unique style</p>
+    <img alt="image" class="example-img" src="img/content/css-2.png"> </div>
+  <div class="size-3">
+    <h2>Inline CSS</h2>
+    <p>An inline style may be used to apply a unique style for a single element.</p>
+    <img alt="image" class="example-img" src="img/content/css-3.png"> </div>
+</div>
+<div class="row" id="example1">
+  <div class="half">
+    <h1>Basic Example</h1>
+    <img alt="image" class="example-img" src="img/content/example-2.png"> </div>
+  <div class="half">
+    <h2 >Result</h2>
+    <img alt="image" class="example-img" src="img/content/example-3.png"> </div>
+</div>
+<div class="row" id="color">
+  <div class="half">
+    <h1>Color Code (Hex)</h1>
+    <ul class="ul-no-style" >
+      <li>
+        <input id="colorCode" placeholder="ex:#fff / $ff00ff">
+        <button id="generateBtn" onclick="generateColor()">Generate</button>
+      </li>
+    </ul>
+  </div>
+  <div class="half" >
+    <h2>Result</h2>
+    <div id="result"></div>
+  </div>
+</div>
+<div class="footer">
+  <p><a href="terms.html">Terms &amp; Conditions</a> | <a href="policy.html">Privacy Policy</a> | <a href="contact.html">Contact Us</a></p>
+  <p><code>&copy;Copyright LearnHTML.com 2020</code></p>
+</div>
+</body>
+</html>

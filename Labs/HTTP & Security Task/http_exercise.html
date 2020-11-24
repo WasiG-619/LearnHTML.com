@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<title>HTTP &amp; Security</title>
+<style>
+body {
+    font-family: Arial;
+    text-align: justify;
+	padding-right: 50px;
+}
+li:after {
+    content: "\a";
+}
+</style>
+</head>
+<body>
+<ol>
+  <li>
+    <h2>What is  Hypertext Transfer Protocol (HTTP)?</h2>
+    <p>HTTP (or Hyper Text Transfer Protocol) is a protocol used on the World Wide Web which allows web pages to be loaded. HTTP is an application layer protocol which is designed to transfer hyper text documents, primarily HTML documents. It's main purpose is to allow communication between web browsers on the client side to web servers.</p>
+  </li>
+  <li>
+    <h2>Why is HTTP called a stateless protocol?</h2>
+    <p>HTTP is a stateless protocol because the web server does not retain any data that is sent or recieved between requests. This means the web server does not keep track of data. For instance, a HTTP server will not keep track of how many times a client has visited it before. Contrastingly, a stateful protocol will retain session information and status information.</p>
+  </li>
+  <li>
+    <h2>Describe the three phases of establishing a session using client-server protocols such as HTTP.</h2>
+    <p>All HTTP sessions consist of <b>three phases</b> of establishing a session:</p>
+    <ul>
+      <li>The client establishes a TCP connection (or the appropriate connection if the transport layer is not TCP).</li>
+      <li>The client sends its request, and waits for the answer. </li>
+      <li>The server processes the request, sending back its answer, providing a status code and appropriate data. </li>
+    </ul>
+    <h4>Phase 1: Establishing a connection</h4>
+    <p>A client establishes a connection through a transport layer protocol, this is typically TCP. If TCP is used, the default poert for a HTTP server is port 80 but other ports like 8000 or 8080 can be used. The URL (Uniform Resource Locator) of a webpage is where the domain name and the port name is entered, although if the port number is 80 (HTTPS), then you don't have to put it in the URL.</p>
+    <h4>Phase 2: Sending a client request</h4>
+    <p>Once the user has established a connection with the web server, a client request can be sent. A client request consists of commands which are separated by CRLF (carriage return, followed by line feed) which are divided into three segments.</p>
+    <p>The first line contains a request method containing two parameters - the path of the document and the HTTP protocol version. The lines that follow include a HTTP header which informs the server about the type of data which is appropriate (i.e. what language it is).The final block is not always used and is an optional data block. This block can contain additional information, the POST method mainly uses this final block. Below is an example of a client request.</p>
+    <code>GET / HTTP/1.1
+    Host: google.co.uk
+    Accept-Language: en</code>
+    <h4>Phase 3: Server Response</h4>
+    <p>Once the user agent (typically a web browser) has sent a request to the web server, the server processes it and sends a response back to the client. A web server response, similar to a client request, is formed with text commands seperated by CRLF and divided into three sgments/blocks. </p>
+    <p>The status request is listed on the first line - it lists the HTTP version followed by the status request. The lines after this are HTTP headers which give further information to the client regarding the data sent (e.g. type of data, the size of data). An empty line is at the end of the block just like the block of headers for a request made by the client. The final block contains is an optional data block. </p>
+  </li>
+</ol>
+</body>
+</html>
