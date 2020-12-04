@@ -2,28 +2,34 @@
 <html lang="en" dir="ltr">
 <head>
 <meta charset="utf-8">
-<title>HTTP &amp; Security</title>
+<title>HTTP &amp; Security Lab</title>
 <style>
 body {
     font-family: Arial;
     text-align: justify;
-	padding-right: 50px;
+    padding-right: 50px;
 }
 li:after {
     content: "\a";
+}
+code {
+    font-weight: 800;
 }
 </style>
 </head>
 <body>
 <ol>
+  <!--Question 1.-->
   <li>
     <h2>What is  Hypertext Transfer Protocol (HTTP)?</h2>
     <p>HTTP (or Hyper Text Transfer Protocol) is a protocol used on the World Wide Web which allows web pages to be loaded. HTTP is an application layer protocol which is designed to transfer hyper text documents, primarily HTML documents. It's main purpose is to allow communication between web browsers on the client side to web servers.</p>
   </li>
+  <!--Question 2.-->
   <li>
     <h2>Why is HTTP called a stateless protocol?</h2>
     <p>HTTP is a stateless protocol because the web server does not retain any data that is sent or recieved between requests. This means the web server does not keep track of data. For instance, a HTTP server will not keep track of how many times a client has visited it before. Contrastingly, a stateful protocol will retain session information and status information.</p>
   </li>
+  <!--Question 3.-->
   <li>
     <h2>Describe the three phases of establishing a session using client-server protocols such as HTTP.</h2>
     <p>All HTTP sessions consist of <b>three phases</b> of establishing a session:</p>
@@ -43,6 +49,94 @@ li:after {
     <h4>Phase 3: Server Response</h4>
     <p>Once the user agent (typically a web browser) has sent a request to the web server, the server processes it and sends a response back to the client. A web server response, similar to a client request, is formed with text commands seperated by CRLF and divided into three sgments/blocks. </p>
     <p>The status request is listed on the first line - it lists the HTTP version followed by the status request. The lines after this are HTTP headers which give further information to the client regarding the data sent (e.g. type of data, the size of data). An empty line is at the end of the block just like the block of headers for a request made by the client. The final block contains is an optional data block. </p>
+  </li>
+  <!--Question 4.-->
+  <li>
+    <h2>Describe the parameters on a get and post request.</h2>
+    <p>HTTP defines a set of request methods to indicate the desired action to be performed for a given resource. There are set parameters in place for certain requests, the two most common HTTP methods are <code>GET</code> and <code>POST</code>.</p>
+    <p>The <code >GET</code> method requests to recieve data of a specified resource. The <code >POST</code> method is used to submit data (i.e. send data) to the HTTP server, often resulting in a change. HTML Forms are typically used to send a <code>POST</code> request. </p>
+  </li>
+  <!--Question 5.-->
+  <li>
+    <h2>What are the HTTP response status code and What do the HTTP status codes, 200, and 404 indicate? </h2>
+    <p>HTTP status response codes are used to indicate if HTTP requests have been successfully completed. Response status codes are categorised in five groups: </p>
+    <ul>
+      <li>Informational responses (<code>100–199</code>)</li>
+      <li>Successful responses (<code>200–299</code>) </li>
+      <li>Redirects (<code>300–399</code>)</li>
+      <li>Client errors (<code>400–499</code>) </li>
+      <li>Server errors (<code>500–599</code>) </li>
+    </ul>
+    <p>Two of the most common HTTP status codes across all five groups are:</p>
+    <h4>200 - OK</h4>
+    <p>The HTTP status code <code>200</code> is the success response code indicating that the request sent succeeded. By default, a 200 response code will be cached. The indication of success will vary with HTTP Request Methods. For instance, if the 200 status code is returned for a GET method, then that will mean the resource will have been successfully collected and it will be transmitted in the message body. </p>
+    <h4>404 - Not Found</h4>
+    <p>The HTTP status code <code>404</code>, commonly referred to as Not Found, indicates that there that the server cannot find the resource that was requested. If a resource cannot be found by the server, then the 404 response code will be returned to the end user (client). A 404 code could mean the resource is temporarily or permanently missing.</p>
+  </li>
+  <!--Question 6.-->
+  <li>
+    <h2>What are HTTP cookies? Give an example. </h2>
+    <p>Cookies are text files which are stored on the end user’s computer to improve the functionality of webpages. Cookies are used to store and remember certain bits of information about a user. JS can create and read cookies. Certain actions by the user are saved so if the user returns to the webpage, the cookie can be retrieved whilst the page is loading and apply any adjustments to the webpage. <b>There are three main uses for Cookies:</b> </p>
+    <h4>Session Management</h4>
+    <p>Cookies are simply used to store login information (e.g. username, password, email address etc.), game scores, shopping carts and pretty much anything else that the server can remember. </p>
+    <h4>Personalisation</h4>
+    <p>These are settings and preferences the user has set to change the display or the layout of the webpage. Examples include: user preferences, themes, preferred fonts/colours, etc. </p>
+    <h4>Tracking</h4>
+    <p>This involves recording user behaviour. Tracking cookies can include: data about the user's browser (e.g. browser type, resolution, aspect ratio etc.), browsing activity, recent purchases on the site, IP address and plenty of other things. This information is then used to analyse user behaviour and enables businesses/organisations to gain an understanding of users/customers. User data is a valuable asset for businesses and organisations around the world.</p>
+    <p><b>Example of a cookie file</b></p>
+    <p><code>document.cookie="username=user; expires=Thu, 18 Mar 2021 12:00:00 UTC";
+      var x = document.cookie;</code> </p>
+    <h4>Additional information about Cookies</h4>
+    <p>Cookies can be stored long-term and on a short-term basis. Known as session cookies, short-term cookies are destroyed when the browser is closed whilst persistent cookies (long-term) are destroyed when the expiry date of the cookie is reached. They usually expire in 12 months, they cannot last longer than 12 months due to the GDPR Act introduced in 2018.</p>
+  </li>
+  <!--Question 7.-->
+  <li>
+    <h2>Why are cookies a security issue? </h2>
+    <p>Cookies are not stored on HTTP servers, they are stored on the end-user's system so they are visibile to users and ultimately can be changed by the end-users. </p>
+    <p>The <code>HttpOnly</code> attribute in Javascript can be used to prevent access to pre-defined cookie values. Cookies can also set to have a short lifetime - by European GDPR law, cookies cannot last longer than 12 months but they can be set to a shorter lifetime with the <code>SameSite</code> attribute set to <code>Strict</code> or <code>Lax</code>. The SameSite attribute can be functional with browsers that support SameSite - most modern browsers do support Samesite, some like IE (Internet Explorer) only support it partially. <a target="_blank" href="https://caniuse.com/same-site-cookie-attribute">caniuse.com</a> can be used to find out find out the browser support for the 'Samesite' cookie attribute. </p>
+  </li>
+  <!--Question 8.-->
+  <li>
+    <h2>Describe session hijacking and XSS </h2>
+    <p>Session Hijacking is when an attacker gains access to and takes control of a valid session between two computers. Attackers will attempt to steal a valid session ID in order to gain access to a user's system and view their data. In TCP (Transmission Control Protocol) sessions, attackers can gain access to the session by using the same session ID for their own browser session.</p>
+    <p>XSS, or commonly referred to as Cross-site-scripting, is an exploit which grants an attacker to inject malicious code into a website which affects the end user (client). The malicious code is then run by the client and allows the attacker to impersonate the end user. The Open Web Application Security Project reported XSS as the <a target="_blank" href="https://owasp.org/www-project-top-ten/2017/A7_2017-Cross-Site_Scripting_(XSS).html">seventh most common web application vulnerability in 2017</a>. </p>
+    <h4>Why Session Hijacking Occurs:</h4>
+    <ul>
+      <li>short session IDs </li>
+      <li>weak session-ID generation algorithm </li>
+      <li>transmission in plain text </li>
+      <li>no account lockout for invalid session IDs </li>
+      <li>indefinite session expiration time </li>
+    </ul>
+    <h4>How to protect against session hijacking:</h4>
+    <ul>
+      <li>generate the session ID after successful login </li>
+      <li>pass encrypted data between the users and the web server </li>
+      <li>pass authentication cookies over HTTPS (rather than HTTP) connection </li>
+      <li>create a secure communication channel with SSH (secure shell) </li>
+      <li>use a string or long random number as a session key </li>
+      <li>implement logout functionality so the user can end the session </li>
+    </ul>
+  </li>
+  <!--Question 9.-->
+  <li>
+    <h2>Describe Cross-site request forgery(CSRF) </h2>
+    <p>CSRF (Cross-Site Request Forgery) is a type of attack that involves impersonating users by making them perform actions that they don't intend to perform - for instance sending a website unwanted commands. Attackers can achieve this using various methods but one common way is to add malware in a URL to appear as if it has gone to another page. </p>
+    <p>A successful CSRF attack can be devastating for both the end user and the organisation/business. End users could have their banking details, passwords and data exposed.</p>
+  </li>
+  <!--Question 10.-->
+  <li>
+    <h2>What are Cross-site HTTP requests (CORS) and what requests use CORS? </h2>
+    <p>Cross-Origin Resource Sharing (CORS) is a request for a resource (e.g. image or font) outside of the origin. CORS is responsible for managing cross-origin requests, it is a HTTP-header mechanism and makes it easy to load resources from other origins. CORS is also used to make a "preflight" request to the server that is hosting the cross-origin resource. The preflight uses headers to instruct the HTTP method on what will be gathered in the actual request.</p>
+    <p>CORS is common when using external fonts hosted on another server. For instance, if a website uses the Open Sans font from Google's servers, then CORS will be used. </p>
+    <h4>What requests use CORS:</h4>
+    <ul>
+      <li>Web Fonts </li>
+      <li>WebGL textures</li>
+      <li>Images/video frames drawn to a canvas using drawImage() </li>
+      <li>Invocations of the XMLHttpRequest or Fetch APIs </li>
+      <li>CSS Shapes from images.</li>
+    </ul>
   </li>
 </ol>
 </body>
