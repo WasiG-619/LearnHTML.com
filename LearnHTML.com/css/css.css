@@ -2,15 +2,34 @@
     box-sizing: border-box;
 }
 body {
-font-family: 'Open Sans', sans-serif;
+    display: grid;
+    grid-template-areas: 
+                "navigation navigation"
+                "header header"
+                "links intro"
+                "description description"
+                "footer footer";
+    grid-template-columns: 30% 70%;
+    grid-template-rows: 45px 400px 350px auto 150px;
+    font-family: 'Open Sans', sans-serif;
     margin: 0;
 }
+
+.navbar{grid-area: navigation;}
+.header{grid-area: header;}
+.alt-nav-links{grid-area: links;}
+.welcome-intro{grid-area: intro;}
+.Description{grid-area: description;}
+.footer{grid-area: footer;}
+
 .header {
     padding: 110px;
     color: white;
-    background-image: url('../img/cover.jpg');
+    background-image: url("../img/css-code.jpeg");
     background-size: cover;
     text-align: left;
+	background-position: center;
+	background-repeat: no-repeat;
 }
 .header h1 {
     font-size: 65px;
@@ -43,7 +62,7 @@ font-family: 'Open Sans', sans-serif;
 .navbar a:hover {
     color: skyblue;
 }
-.row {
+.content {
     display: flex;
     flex-wrap: wrap;
     border-top-style: solid;
@@ -62,8 +81,7 @@ font-family: 'Open Sans', sans-serif;
     height: auto;
     margin-left: 10%;
 }
-.size-1 {
-    flex: 30%;
+.alt-nav-links {
     background-color: white;
     padding: 20px;
     text-align: left;
@@ -71,7 +89,7 @@ font-family: 'Open Sans', sans-serif;
     border-right-style: solid;
     border-right-color: rgba(200,200,200,0.1);
 }
-.size-3 {
+.apply-ad {
     color: #444;
     flex: 32%;
     background-color: rgba(248,200,248,0.2);
@@ -81,15 +99,15 @@ font-family: 'Open Sans', sans-serif;
     border-radius: 12px;
     box-shadow: 1px 2px 5px rgba(50,50,50,0.41);
 }
-.size-4 {
-    flex: 70%;
+.welcome-intro {
+   
     background-color: white;
     padding: 20px;
 }
-.size-4 h1, .half h1, .banner h1, .size-1 h1, .size-2 h1, .size-3 h1, .row h1 {
-    color: rgba(50,50,100,1);
+.welcome-intro h1, .half h1, .banner h1, .alt-nav-links h1, .overview h1, .apply-ad h1, .content h1 {
+    color: #323264;
 }
-.size-4 h2, .size-4 p {
+.welcome-intro h2, .welcome-intro p {
     color: #444;
 }
 .half {
@@ -119,14 +137,12 @@ ul {
     text-decoration: none;
     color: #eee;
 }
-#intro-row .size-1 {
+#intro-content .alt-nav-links {
     box-shadow: 1px 2px 5px rgba(50,50,50,0.41);
     background-color: rgba(200,200,248,0.2);
 }
 .learnBtn {
     display: block;
-    border-radius: 8px;
-    border-color: transparent;
     color: #fff;
     background-color: rgba(50,50,100,1);
     border-color: #985c98;
@@ -174,12 +190,26 @@ ul {
 }
 
 @media screen and (max-width: 700px) {
-.row, .navbar {
+
+
+body {
+    grid-template-areas: 
+                "header"
+                "links"
+                "intro"
+                "description"
+                "footer";
+    grid-template-columns: auto;
+    grid-template-rows:  400px auto auto auto 150px;
+    font-family: 'Open Sans', sans-serif;
+    margin: 0;
+}
+
+.content, .navbar {
     flex-direction: column;
 }
 .header {
     padding: 30px;
-    height: 250px;
     text-align: center;
 }
 .header h1 {
@@ -195,11 +225,5 @@ ul {
     width: 98%;
     height: auto;
     margin-left: 1%;
-}
-}
-
-@media screen and (min-width: 700px) {
-.header {
-    height: 400px;
 }
 }

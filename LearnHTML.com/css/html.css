@@ -2,11 +2,33 @@
     box-sizing: border-box;
 }
 body {
+    display: grid;
+    grid-template-areas: "navigation navigation"  "header header"  "links intro"  "description description"  "footer footer";
+    grid-template-columns: 30% auto;
+    grid-template-rows: 45px 400px 450px auto 150px;
     font-family: 'Open Sans', sans-serif;
     margin: 0;
 }
+.navbar {
+    grid-area: navigation;
+}
 .header {
-    padding: 110px;
+    grid-area: header;
+}
+.alt-nav-links {
+    grid-area: links;
+}
+.example-explanation-intro {
+    grid-area: intro;
+}
+.Description {
+    grid-area: description;
+}
+.footer {
+    grid-area: footer;
+}
+.header {
+    padding: 7.575em; /*~110px original value TEST */
     color: white;
     background-image: url('../img/html-code.jpg');
     background-size: cover;
@@ -43,14 +65,14 @@ body {
 .navbar a:hover {
     color: skyblue;
 }
-.row {
+.content {
     display: flex;
     flex-wrap: wrap;
     border-top-style: solid;
     border-top-width: 2px;
     border-top-color: rgba(200,200,200,0.2);
 }
-#intro-row .size-1 {
+#intro-content .alt-nav-links {
     border-right-color: rgba(200,200,248,0.3);
     border-right-style: solid;
     border-right-width: 2px;
@@ -68,8 +90,7 @@ body {
     height: auto;
     margin-left: 30px;
 }
-.size-1 {
-    flex: 30%;
+.alt-nav-links {
     background-color: white;
     padding: 20px;
     text-align: left;
@@ -77,7 +98,7 @@ body {
     border-right-style: solid;
     border-right-color: rgba(200,200,200,0.1);
 }
-.size-2 {
+.overview {
     margin: 0px;
     color: #444;
     flex: 24%;
@@ -87,7 +108,7 @@ body {
     margin-left: 1%;
     text-align: left;
 }
-.size-3 {
+.apply-ad {
     color: #444;
     flex: 32%;
     background-color: rgba(200,200,248,0.2);
@@ -97,15 +118,19 @@ body {
     margin-left: 1%;
     border-radius: 12px;
 }
-.size-4 {
-    flex: 70%;
+.example-explanation {
     background-color: white;
     padding: 20px;
+
 }
-.size-4 h1, .half h1, .banner h1, .size-1 h1, .size-2 h1, .size-3 h1, .row h1 {
+
+.example-explanation h3 {
+	color: #444
+}
+.example-explanation h1, .half h1, .banner h1, .alt-nav-links h1, .overview h1, .apply-ad h1, .content h1 {
     color: #4a984a;
 }
-.size-4 h2, .size-4 p {
+.example-explanation h2, .example-explanation p {
     color: #444;
 }
 .half {
@@ -114,13 +139,10 @@ body {
     padding: 20px;
     text-align: left;
 }
-.f-img {
+.img-languages {
     width: 100%;
     padding: 20px;
     background-size: cover;
-}
-.f-img img {
-    width: 50%;
 }
 .example-img {
     max-width: 100%;
@@ -132,10 +154,14 @@ ul {
     line-height: 30px;
     margin: 0px;
 }
+
+.alt-nav-links ul {
+    line-height: 30px;
+    list-style-type: none;
+}	
+
 .learnBtn {
     display: block;
-    border-radius: 8px;
-    border-color: transparent;
     color: #fff;
     background-color: #5cb85c;
     border-color: #4cae4c;
@@ -163,12 +189,19 @@ ul {
 }
 
 @media screen and (max-width: 700px) {
-.row, .navbar {
+body {
+    display: grid;
+    grid-template-areas: "header"  "links"  "intro"  "description"  "footer";
+    grid-template-columns: auto;
+    grid-template-rows: 400px auto auto auto 150px;
+    font-family: 'Open Sans', sans-serif;
+    margin: 0;
+}
+.content, .navbar {
     flex-direction: column;
 }
 .header {
     padding: 30px;
-    height: 250px;
     text-align: center;
 }
 .header h1 {
@@ -184,11 +217,5 @@ ul {
     width: 98%;
     height: auto;
     margin-left: 1%;
-}
-}
-
-@media screen and (min-width: 700px) {
-.header {
-    height: 400px;
 }
 }

@@ -9,8 +9,6 @@ body {
     padding: 10px;
     text-align: center;
     color: #446;
-    background-size: cover;
-    text-align: left;
 }
 .header h1 {
     font-size: 65px;
@@ -43,7 +41,7 @@ body {
 .navbar a:hover {
     color: skyblue;
 }
-.row {
+.content {
     display: flex;
     flex-wrap: wrap;
     border-top-style: solid;
@@ -71,7 +69,7 @@ body {
 }
 
 @media screen and (max-width: 700px) {
-.row, .navbar {
+.content, .navbar {
     flex-direction: column;
 }
 #toggle-nav {
