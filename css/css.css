@@ -1,0 +1,229 @@
+* {
+    box-sizing: border-box;
+}
+body {
+    display: grid;
+    grid-template-areas: 
+                "navigation navigation"
+                "header header"
+                "links intro"
+                "description description"
+                "footer footer";
+    grid-template-columns: 30% 70%;
+    grid-template-rows: 45px 400px 350px auto 150px;
+    font-family: 'Open Sans', sans-serif;
+    margin: 0;
+}
+
+.navbar{grid-area: navigation;}
+.header{grid-area: header;}
+.alt-nav-links{grid-area: links;}
+.welcome-intro{grid-area: intro;}
+.Description{grid-area: description;}
+.footer{grid-area: footer;}
+
+.header {
+    padding: 110px;
+    color: white;
+    background-image: url("../img/css-code.jpeg");
+    background-size: cover;
+    text-align: left;
+	background-position: center;
+	background-repeat: no-repeat;
+}
+.header h1 {
+    font-size: 65px;
+}
+.navbar {
+    display: flex;
+    background-color: #333;
+}
+#toggle-nav {
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: none;
+    z-index: 1;
+    background-color: #334;
+    border-bottom-left-radius: 10px;
+}
+.navbar a, #toggle-nav {
+    color: white;
+    padding: 14px 20px;
+    text-decoration: none;
+    text-align: center;
+}
+.logo img {
+    height: 20px;
+}
+.navbar .active {
+    color: skyblue;
+}
+.navbar a:hover {
+    color: skyblue;
+}
+.content {
+    display: flex;
+    flex-wrap: wrap;
+    border-top-style: solid;
+    border-top-width: 2px;
+    border-top-color: rgba(200,200,200,0.2);
+}
+.banner {
+    flex: 100%;
+    background-color: white;
+    padding: 20px;
+    text-align: left;
+    color: #444;
+}
+.banner img {
+    width: 40%;
+    height: auto;
+    margin-left: 10%;
+}
+.alt-nav-links {
+    background-color: white;
+    padding: 20px;
+    text-align: left;
+    border-right-width: 1px;
+    border-right-style: solid;
+    border-right-color: rgba(200,200,200,0.1);
+}
+.apply-ad {
+    color: #444;
+    flex: 32%;
+    background-color: rgba(248,200,248,0.2);
+    padding: 20px;
+    text-align: left;
+    margin-left: 1%;
+    border-radius: 12px;
+    box-shadow: 1px 2px 5px rgba(50,50,50,0.41);
+}
+.welcome-intro {
+   
+    background-color: white;
+    padding: 20px;
+}
+.welcome-intro h1, .half h1, .banner h1, .alt-nav-links h1, .overview h1, .apply-ad h1, .content h1 {
+    color: #323264;
+}
+.welcome-intro h2, .welcome-intro p {
+    color: #444;
+}
+.half {
+    flex: 50%;
+    background-color: white;
+    padding: 20px;
+    text-align: left;
+}
+.example-img {
+    max-width: 80%;
+    width: auto;
+    height: auto;
+    margin: 0px;
+}
+ul {
+    line-height: 30px;
+    margin: 0px;
+}
+.footer {
+    margin-top: 30px;
+    padding: 5px;
+    color: #fff;
+    text-align: left;
+    background: #000;
+}
+.footer a {
+    text-decoration: none;
+    color: #eee;
+}
+#intro-content .alt-nav-links {
+    box-shadow: 1px 2px 5px rgba(50,50,50,0.41);
+    background-color: rgba(200,200,248,0.2);
+}
+.learnBtn {
+    display: block;
+    color: #fff;
+    background-color: rgba(50,50,100,1);
+    border-color: #985c98;
+    padding: 6px 12px;
+    font-size: 14px;
+    text-align: center;
+    white-space: nowrap;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    width: 200px;
+    height: 45px;
+    text-decoration: none;
+    margin-bottom: 20px;
+    margin-left: 40px;
+}
+#result {
+    height: 40px;
+    width: 60%;
+    border-radius: 0px;
+    border-style: solid;
+}
+#intro h3 {
+    color: #444;
+}
+#colorCode {
+    border-style: solid;
+    border-radius: 0px;
+    width: 50%;
+    height: 40px;
+}
+#generateBtn {
+    border-radius: 0px;
+    height: 40px;
+    background-color: rgba(50,50,100,1);
+    color: white;
+    border-style: solid;
+}
+.ul-no-style {
+    line-height: 30px;
+    list-style-type: none;
+    padding: 0px;
+}
+.ul-line-height {
+    line-height: 30px;
+}
+
+@media screen and (max-width: 700px) {
+
+
+body {
+    grid-template-areas: 
+                "header"
+                "links"
+                "intro"
+                "description"
+                "footer";
+    grid-template-columns: auto;
+    grid-template-rows:  400px auto auto auto 150px;
+    font-family: 'Open Sans', sans-serif;
+    margin: 0;
+}
+
+.content, .navbar {
+    flex-direction: column;
+}
+.header {
+    padding: 30px;
+    text-align: center;
+}
+.header h1 {
+    font-size: 25px;
+}
+#toggle-nav {
+    display: block;
+}
+.navbar, .logo {
+    display: none;
+}
+.banner img {
+    width: 98%;
+    height: auto;
+    margin-left: 1%;
+}
+}
